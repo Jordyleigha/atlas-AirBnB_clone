@@ -30,7 +30,7 @@ All your functions (inside and outside a class) should have a documentation (pyt
 A documentation is not a simple word, it’s a real sentence explaining what’s the purpose of the module, class or method (the length of it will be verified)
 
 
-Python Unit Tests
+<h1 align="center"> Python Unit Tests </h1>
 Allowed editors: vi, vim, emacs
 All your files should end with a new line
 All your test files should be inside a folder tests
