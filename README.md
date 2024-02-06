@@ -1,4 +1,6 @@
-Learning Objectives
+<h1 align="center">
+  💭Learning Objectives ණ⃛(ᵒ͈̑ᴗ̂ᵒ͈̑ )”
+ </h1>
 
 General
 How to create a Python package
