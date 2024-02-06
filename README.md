@@ -11,6 +11,7 @@ What is an UUID
 What is *args and how to use it
 What is **kwargs and how to use it
 How to handle named arguments in a function
+
 Requirements
 Python Scripts
 Allowed editors: vi, vim, emacs
@@ -25,6 +26,8 @@ All your modules should have a documentation (python3 -c 'print(__import__("my_m
 All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
 All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
 A documentation is not a simple word, it’s a real sentence explaining what’s the purpose of the module, class or method (the length of it will be verified)
+
+
 Python Unit Tests
 Allowed editors: vi, vim, emacs
 All your files should end with a new line
@@ -40,5 +43,4 @@ You can also test file by file by using this command: python3 -m unittest tests/
 All your modules should have a documentation (python3 -c 'print(__import__("my_module").__doc__)')
 All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
 All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
-We strongly encourage you to work together on test cases, so that you don’t miss any edge case
 
