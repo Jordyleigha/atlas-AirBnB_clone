@@ -107,3 +107,29 @@ def do_count(self, *args):
                 FileStorage.save()
             else:
                 print("** no instance found **")
+
+    def default(self, line):
+        """
+        Default method for the console.
+        """
+        print("*** Unknown syntax: {}".format(line))
+
+    def do_quit(self, *args):
+        """ Quits the application"""
+        return True
+
+    def do_exit(self, *args):
+        """ Quits the application"""
+        return True
+
+    def do_EOF(self, *args):
+        """ Quits the application with an end of file"""
+        return True
+
+    def emptyline(self):
+        """ empty line"""
+        pass
+
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
