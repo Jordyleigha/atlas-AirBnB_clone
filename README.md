@@ -14,7 +14,8 @@ What is **kwargs and how to use it
 How to handle named arguments in a function
 <h1 align="center">
 🚨Requirements🚨 ✋(˶0 - 0˶)🤚 </h1>
-Python Scripts
+<h3 align="left"> Python Scripts </h3>
+
 Allowed editors: vi, vim, emacs
 All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)
 All your files should end with a new line
