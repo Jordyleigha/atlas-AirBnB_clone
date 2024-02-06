@@ -48,3 +48,14 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) < 4:
             print('** value missing **')
 
+     else:
+            key = args[0] + '.' + args[1]
+            if key in FileStorage.all().keys():
+                if args[2] in ['created_at', 'updated_at']:
+                    print("** attribute name cannot be 'created_at' or "
+                          "'updated_at' **")
+                else:
+                    FileStorage.all()[key].__dict__[args[2]] = args[3]
+                    FileStorage.all()[key].save()
+            else:
+                print("** no instance found **")
