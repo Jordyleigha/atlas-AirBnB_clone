@@ -59,3 +59,35 @@ class HBNBCommand(cmd.Cmd):
                     FileStorage.all()[key].save()
             else:
                 print("** no instance found **")
+        def do_all(self, *args):
+        """ Prints all instances """
+        if args[0] == '':
+            print(models.storage.all())
+        elif args and args[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        else:
+            print([str(v) for k, v in models.storage.all().items()
+                   if args[0] in k]) 
+def do_count(self, *args):
+        """ Counts the number of instances of a class """
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        else:
+            print(len([v for k, v in FileStorage.all().items()
+                       if args[0] in k]))
+            def do_show(self, *args):
+        """ Prints an instance """
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        elif len(args) < 2:
+            print('** instance id missing **')
+        else:
+            key = args[0] + '.' + args[1]
+            if key in FileStorage.all().keys():
+                print(FileStorage.all()[key])
+            else:
+                print("** no instance found **")
