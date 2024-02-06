@@ -91,3 +91,19 @@ def do_count(self, *args):
                 print(FileStorage.all()[key])
             else:
                 print("** no instance found **")
+
+    def do_destroy(self, *args):
+        """ Deletes an instance """
+        if len(args) == 0:
+            print("** class name missing **")
+        elif args[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        elif len(args) < 2:
+            print('** instance id missing **')
+        else:
+            key = args[0] + '.' + args[1]
+            if key in FileStorage.all().keys():
+                del FileStorage.all()[key]
+                FileStorage.save()
+            else:
+                print("** no instance found **")
