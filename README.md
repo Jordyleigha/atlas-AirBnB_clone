@@ -2,7 +2,6 @@
   💭Learning Objectives ණ⃛(ᵒ͈̑ᴗ̂ᵒ͈̑ )”
  </h1>
 
-General
 How to create a Python package
 How to create a command interpreter in Python using the cmd module
 What is Unit testing and how to implement it in a large project
@@ -13,8 +12,8 @@ What is an UUID
 What is *args and how to use it
 What is **kwargs and how to use it
 How to handle named arguments in a function
-
-Requirements
+<h1 align="center">
+🚨Requirements🚨 ✋(˶0 - 0˶)🤚 </h1>
 Python Scripts
 Allowed editors: vi, vim, emacs
 All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)
