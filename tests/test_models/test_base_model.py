@@ -1,92 +1,156 @@
 #!/usr/bin/python3
-"""
-This module is the unittest file for the class: BaseModel.
-"""
-from genericpath import exists
+
+'''
+    All the test for the base_model are implemented here.
+'''
+
 import unittest
 from models.base_model import BaseModel
-import pep8
+from io import StringIO
+import sys
+import datetime
 
 
-class TestBaseClass(unittest.TestCase):
-    """
-    This class is for testing BaseModel.
-    """
+class TestBase(unittest.TestCase):
+    '''
+        Testing the base class model.
+    '''
+
     def setUp(self):
-        """
-        Setup method.
-        """
-        self.User1 = BaseModel()
-        self.User2 = BaseModel()
+        '''
+            Initializing instance.
+        '''
+        self.my_model = BaseModel()
+        self.my_model.name = "Binita Rai"
 
-    def tearDown(self):
-        """
-        Teardown method.
-        """
-        del self.User1
-        del self.User2
+    def TearDown(self):
+        '''
+            Removing instance.
+        '''
+        del self.my_model
 
-    def test_pep8(self):
-        """
-        Testing pep8 compliance.
-        """
-        pep8style = pep8.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/base_model.py'])
-        self.assertEqual(
-            result.total_errors, 0, "Found code style errors (and warnings).")
+    def test_id_type(self):
+        '''
+            Checks that the type of the id is string.
+        '''
+        self.assertEqual("<class 'str'>", str(type(self.my_model.id)))
 
-    def test_documentation(self):
-        """
-        tests for module, class, & method documentation.
-        """
-        # Class docstring
-        self.assertTrue(len(BaseModel.__doc__) >= 1)
-        # Method docstrings
-        self.assertTrue(len(BaseModel.__init__.__doc__) >= 1)
+    def test_ids_differ(self):
+        '''
+            Checks that the ids between two instances are different.
+        '''
+        new_model = BaseModel()
+        self.assertNotEqual(new_model.id, self.my_model.id)
 
-    def test_init(self):
-        """
-        Tests the init method.
-        """
-        # Test IDs
-        self.assertTrue(self.User1.id, exists)
-        self.assertTrue(type(self.User1.id) is str)
-        self.assertNotEqual(self.User1.id, self.User2.id)
-        # Test created datetime
-        self.assertTrue(self.User1.created_at, exists)
-        self.assertNotEqual(self.User1.created_at, self.User2.created_at)
-        # Test updated datetime
-        self.assertEqual(self.User1.created_at, self.User1.updated_at)
+    def test_name(self):
+        '''
+            Checks that an attribute can be added.
+        '''
+        self.assertEqual("Binita Rai", self.my_model.name)
 
-    def test_str(self):
-        """
-        Testing __str__.
-        """
-        expected_display = "[{}] ({}) {}".format(
-                self.User1.__class__.__name__,
-                self.User1.id,
-                self.User1.__dict__)
-        self.assertEqual(self.User1.__str__(), expected_display)
+    def test_a_updated_created_equal(self):
+        '''
+            Checks that both dates are equal.
+        '''
+        self.assertEqual(self.my_model.updated_at.year,
+                         self.my_model.created_at.year)
 
     def test_save(self):
-        """
-        Testing save.
-        """
-        self.User1.save()
-        self.assertNotEqual(self.User1.created_at, self.User1.updated_at)
+        '''
+            Checks that after updating the instance; the dates differ in the
+            updated_at attribute.
+        '''
+        old_update = self.my_model.updated_at
+        self.my_model.save()
+        self.assertNotEqual(self.my_model.updated_at, old_update)
 
-    def test_to_dict(self):
-        """
-        Testing to_dict.
-        """
-        User1_dict = self.User1.to_dict()
-        self.assertEqual(User1_dict['__class__'], 'BaseModel')
-        self.assertEqual(
-            User1_dict['created_at'], self.User1.created_at.isoformat())
-        self.assertEqual(
-            User1_dict['updated_at'], self.User1.updated_at.isoformat())
-        self.assertEqual(User1_dict['id'], self.User1.id)
+    def test_str_overide(self):
+        '''
+            Checks that the right message gets printed.
+        '''
+        backup = sys.stdout
+        inst_id = self.my_model.id
+        capture_out = StringIO()
+        sys.stdout = capture_out
+        print(self.my_model)
 
+        cap = capture_out.getvalue().split(" ")
+        self.assertEqual(cap[0], "[BaseModel]")
 
-if __name__ == "__main__":
-    unittest.main()
+        self.assertEqual(cap[1], "({})".format(inst_id))
+        sys.stdout = backup
+
+    def test_to_dict_type(self):
+        '''
+            Checks that the to_dict method return type.
+        '''
+
+        self.assertEqual("<class 'dict'>",
+                         str(type(self.my_model.to_dict())))
+
+    def test_to_dict_class(self):
+        '''
+            Checks that the __class__ key exists.
+        '''
+
+        self.assertEqual("BaseModel", (self.my_model.to_dict())["__class__"])
+
+    def test_to_dict_type_updated_at(self):
+        '''
+            Checks the type of the value of updated_at.
+        '''
+        self.assertEqual("<class 'str'>",
+                         str(type((self.my_model.to_dict())["updated_at"])))
+
+    def test_to_dict_type_created_at(self):
+        '''
+            Checks the type of the value of created_at.
+        '''
+        tmp = self.my_model.to_dict()
+        self.assertEqual("<class 'str'>", str(type(tmp["created_at"])))
+
+    def test_kwargs_instantiation(self):
+        '''
+            Test that an instance is created using the
+            key value pair.
+        '''
+        my_model_dict = self.my_model.to_dict()
+        new_model = BaseModel(**my_model_dict)
+        self.assertEqual(new_model.id, self.my_model.id)
+
+    def test_type_created_at(self):
+        '''
+            Test that the new_model's updated_at
+            data type is datetime.
+        '''
+        my_model_dict = self.my_model.to_dict()
+        new_model = BaseModel(my_model_dict)
+        self.assertTrue(isinstance(new_model.created_at, datetime.datetime))
+
+    def test_type_updated_at(self):
+        '''
+            Test that the new_model's created_at
+            data type is datetime.
+        '''
+        my_model_dict = self.my_model.to_dict()
+        new_model = BaseModel(my_model_dict)
+        self.assertTrue(isinstance(new_model.updated_at, datetime.datetime))
+
+    def test_compare_dict(self):
+        '''
+            Test that the new_model's and my_model's
+            dictionary values are same.
+        '''
+        my_model_dict = self.my_model.to_dict()
+        new_model = BaseModel(**my_model_dict)
+        new_model_dict = new_model.to_dict()
+        self.assertEqual(my_model_dict, new_model_dict)
+
+    def test_instance_diff(self):
+        '''
+            Test that the my_model and new_model are
+            not the same instance.
+        '''
+        my_model_dict = self.my_model.to_dict()
+        new_model = BaseModel(my_model_dict)
+        self.assertNotEqual(self.my_model, new_model)
