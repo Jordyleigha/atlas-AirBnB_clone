@@ -46,7 +46,7 @@ All your modules should have a documentation (python3 -c 'print(__import__("my_m
 All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
 All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
 
-<h1 align="center"> Starting the Interpreter: </h1>
+<h1 align="left"> Starting the Interpreter: </h1>
 Open a terminal: Launch a command prompt or terminal window on your computer.
 Navigate to the script: Use the cd command to navigate to the directory where the script is located.
 Execute the script: Execute the script: Run the script using its filename, type python ./console.py  and press Enter.
