@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Console for the application. """
+""" Console for the application. """
 import cmd
 
 import models
@@ -11,6 +11,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
+
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -48,7 +49,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) < 4:
             print('** value missing **')
 
-     else:
+        else:
             key = args[0] + '.' + args[1]
             if key in FileStorage.all().keys():
                 if args[2] in ['created_at', 'updated_at']:
@@ -59,7 +60,8 @@ class HBNBCommand(cmd.Cmd):
                     FileStorage.all()[key].save()
             else:
                 print("** no instance found **")
-        def do_all(self, *args):
+
+    def do_all(self, *args):
         """ Prints all instances """
         if args[0] == '':
             print(models.storage.all())
@@ -67,8 +69,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             print([str(v) for k, v in models.storage.all().items()
-                   if args[0] in k]) 
-def do_count(self, *args):
+                   if args[0] in k])
+
+    def do_count(self, *args):
         """ Counts the number of instances of a class """
         if len(args) == 0:
             print("** class name missing **")
@@ -77,7 +80,8 @@ def do_count(self, *args):
         else:
             print(len([v for k, v in FileStorage.all().items()
                        if args[0] in k]))
-            def do_show(self, *args):
+
+    def do_show(self, *args):
         """ Prints an instance """
         if len(args) == 0:
             print("** class name missing **")
