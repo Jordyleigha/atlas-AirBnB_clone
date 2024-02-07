@@ -4,7 +4,6 @@ import datetime
 import json
 import os
 
-
 class FileStorage:
     """ FileStorage class """
     __file_path = "file.json"
@@ -31,8 +30,7 @@ class FileStorage:
 
     def all(self):
         """Returns __objects dict."""
-
-        return FileStorage.__objects
+         return FileStorage.__objects
 
     def new(self, obj):
         """Sets new obj in __objects dictionary."""
@@ -49,7 +47,7 @@ class FileStorage:
 
     def reload(self):
         """Deserializes JSON file into __objects."""
-
+        
         if not os.path.isfile(FileStorage.__file_path):
             return
         with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
