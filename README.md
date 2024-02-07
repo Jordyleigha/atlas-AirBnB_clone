@@ -1,6 +1,4 @@
-<h1 align="center">
-  💭Learning Objectives ණ⃛(ᵒ͈̑ᴗ̂ᵒ͈̑ )”
- </h1>
+## <h1 align="center">💭Learning Objectives ණ⃛(ᵒ͈̑ᴗ̂ᵒ͈̑ )” </h1>
 
 How to create a Python package
 How to create a command interpreter in Python using the cmd module
@@ -12,8 +10,7 @@ What is an UUID
 What is *args and how to use it
 What is **kwargs and how to use it
 How to handle named arguments in a function
-<h1 align="center">
-🚨Requirements🚨 ✋(˶0 - 0˶)🤚 </h1>
+## <h1 align="center"> 🚨Requirements🚨 ✋(˶0 - 0˶)🤚 </h1>
 <h3 align="left"> Python Scripts 🧑‍💻🇵‌🇾‌🐍 </h3>
 
 Allowed editors: vi, vim, emacs
@@ -30,7 +27,7 @@ All your functions (inside and outside a class) should have a documentation (pyt
 A documentation is not a simple word, it’s a real sentence explaining what’s the purpose of the module, class or method (the length of it will be verified)
 
 
-<h1 align="center"> Python Unit Tests 🏘️ </h1>
+## <h1 align="center"> Python Unit Tests 🏘️ </h1>
 Allowed editors: vi, vim, emacs
 All your files should end with a new line
 All your test files should be inside a folder tests
@@ -46,12 +43,12 @@ All your modules should have a documentation (python3 -c 'print(__import__("my_m
 All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
 All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
 
-<h1 align="left"> Starting the Interpreter 👨🏽‍💻🧑🏻‍💻🧑🏼‍💻: </h1>
+## <h1 align="left"> Starting the Interpreter 👨🏽‍💻🧑🏻‍💻🧑🏼‍💻: </h1>
 Open a terminal: Launch a command prompt or terminal window on your computer.
 Navigate to the script: Use the cd command to navigate to the directory where the script is located.
 Execute the script: Execute the script: Run the script using its filename, type python ./console.py  and press Enter.
 
-<h1 align="left"> Using the Interpreter </>: </h1>
+ ## <h1 align="left"> Using the Interpreter </>: </h1>
  Once the interpreter starts, you'll interact with it through text commands. The specific commands available will depend on your implementation, but common ones might include:
 
 Create: Used to create new objects like users, places, reservations, etc. (e.g., create user <username> <email>).
