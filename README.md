@@ -46,7 +46,20 @@ All your modules should have a documentation (python3 -c 'print(__import__("my_m
 All your classes should have a documentation (python3 -c 'print(__import__("my_module").MyClass.__doc__)')
 All your functions (inside and outside a class) should have a documentation (python3 -c 'print(__import__("my_module").my_function.__doc__)' and python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)')
 
-<h1 align="left"> Starting the Interpreter: </h1>
+<h1 align="left"> Starting the Interpreter 👨🏽‍💻🧑🏻‍💻🧑🏼‍💻: </h1>
 Open a terminal: Launch a command prompt or terminal window on your computer.
 Navigate to the script: Use the cd command to navigate to the directory where the script is located.
 Execute the script: Execute the script: Run the script using its filename, type python ./console.py  and press Enter.
+
+<h1 align="left"> Using the Interpreter </>: </h1>
+ Once the interpreter starts, you'll interact with it through text commands. The specific commands available will depend on your implementation, but common ones might include:
+
+Create: Used to create new objects like users, places, reservations, etc. (e.g., create user <username> <email>).
+Show: Displays details of specific objects (e.g., show place <place_id>).
+Update: Modifies attributes of existing objects (e.g., update user <user_id> <new_email>).
+Delete: Removes objects (e.g., delete reservation <reservation_id>).
+List: Shows a list of all objects of a specific type (e.g., list users).
+Search: Finds objects based on specific criteria (e.g., search place city:<city_name> price:<max_price>).
+Help: Provides information about available commands and their usage.
+Quit: Exits the interpreter.
+
