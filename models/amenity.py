@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-""" Amenity class"""
+'''
+    Implementation of the Amenity class
+'''
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """class Amenity with the inheritance from Base"""
-    name = ''
-
-    def __init__(self, *args, **kwargs):
-        """initialize Amenity"""
-        super().__init__(*args, **kwargs)
+    '''
+        Implementation for the Amenities.
+    '''
+    name = ""
